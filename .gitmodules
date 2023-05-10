@@ -1,0 +1,3 @@
+[submodule "lib/Getnextline"]
+	path = lib/Getnextline
+	url = https://github.com/wkrippne/getnextline.git
