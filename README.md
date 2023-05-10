@@ -26,7 +26,7 @@ it that can't be executed won't.
 
 ## Algorithm
 
-For the stacks with size less than 3 I wrote a simple sort algo which can be found in the src folder.
+For the stacks with size less than 3 there is a simple sort algo which can be found in the src folder.
 
 In this project I used `QuickSort` as the main algorithm. This is an efficient algorithm to sort integers
 with average time complexity O(n*logn). 
@@ -36,12 +36,8 @@ with average time complexity O(n*logn).
 My push_swap sorts
 
     3 numbers with maximum 3 instructions,
-    4 numbers with maximum 7 instructions,
-    5 numbers with maximum 11 instructions,
     100 numbers with average 700 instructions => 5 points,
     500 numbers with avaerage 5200 instructions => 5 points.
-
-The algorithm is good enought to pass the project.
 
 ### Bonus
 
@@ -50,4 +46,4 @@ The bonus part is to write a program named checker, which will get as an argumen
 If after executing those instructions, stack a is actually sorted and b is empty, then
 checker must display "OK" else "KO". If checker arguments are invalid it displays Error.
 
-The checker code can be found in the checker.c file in this repository.
+The checker code can be found in the checker.c file in src.
