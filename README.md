@@ -5,8 +5,6 @@ Given a set of integers, sort it using a predefined set of instructions using
 two stacks. The instruction set is defined below. This program outputs a program
 in push_swap instructions that sorts the input integers.
 
-> ⚠️ **Warning**: Don't copy/paste anything you don't understand: it's bad for you, and for the school.
-
 ## Instruction set
 
 For the following instructions, if the instruction is not possible, the part of
@@ -28,63 +26,10 @@ it that can't be executed won't.
 
 ## Algorithm
 
-For the stacks with size less than 6 I wrote a simple sort which can be found in the src folder.
+For the stacks with size less than 3 I wrote a simple sort algo which can be found in the src folder.
 
-In this project I used `Radix` sort as the main algorithm. `Radix` sort is an efficient algorithm to sort non-negative integers
-with time complexity O (n). For example, we can sort following list of integers with this algorithm
-
-```
-87 487 781 100 101 0 1
-```
-
-Imagine there are 10 boxes labeled 0, 1, 2, …, 9
-
-Start from the least significant digit (which is the digit in 1’s place), we put each number into the box which its digit corresponds to.
-
-In the example, 87 has 7 in 1’s place, hence we put it in box 7. 487 also has 7 in 1’s place, so it should be placed in box 7 too (right behind 87) … And we repeat this process until every number is in one of the boxes.
-
-```
-box 0    100    0
-box 1    781    101    1
-box 2
-box 3
-box 4
-box 5
-box 6
-box 7     87    487
-box 8
-box 9
-```
-
-After that, we connect every number according to the order of boxes.
-
-```
-100 0 781 101 1 87 487
-```
-
-As we can see, the numbers are sorted according to the digit in 1’s place. For those with the same digit in 1’s place, they’re sorted according to their order in the original list.
-
-We repeat this procedure n times, whiere n is the number of digits of the largest number in the array
-(In this case 783 => n = 3).
-
-After doing it n times and connecting numbers after each cycle we will have array sorted.
-
-### Simplify numbers
-
-As we mentioned before, this algorithm is for non-negative integers. However, we’ll have negative numbers in this project, so we should simplify the numbers before we start.
-
-To do so I gave indexes to each number in a stack. The smalles number gets index 0, the next smallest gets 1 and so on...
-With this idea, we can simplify any list of integers to make them in the range [0,N) ( ≥ 0 and < N, N is the size of the list).
-
-After simplification we need to do something with the boxes. We have only two stacks instead of 10 boxes. Hence, I sorted the number in base 2 (to use 2 stacks instead of 10).
-
-As in radix sort, we need two boxes for 0 and 1 respectively. Here we treat A as box 1 and B as box 0. Then, we start from the rightmost bit to the leftmost bit.
-
-At the i-th digit from the right, if the i-th digit of the top number of A is 0, we perform `pb` to put this number in stack B. Else, we perform `ra` to leave it in stack A. After we perform one operation on each number, each of them is in the box that corresponds to its digit, as how we put numbers in the boxes in radix sort.
-
-After that, we perform `pa` until there are no numbers in stack B, as we connect the numbers in radix sort.
-
-Repeated the same procedure for every bit and after that got the sorted numbers in the stack a.
+In this project I used `QuickSort` as the main algorithm. This is an efficient algorithm to sort integers
+with average time complexity O(n*logn). 
 
 ### Performance of the Algorithm
 
@@ -93,10 +38,10 @@ My push_swap sorts
     3 numbers with maximum 3 instructions,
     4 numbers with maximum 7 instructions,
     5 numbers with maximum 11 instructions,
-    100 numbers with maximum 1084 instructions => 3 points,
-    500 numbers with maximum 6785 instructions => 4 points.
+    100 numbers with average 700 instructions => 5 points,
+    500 numbers with avaerage 5200 instructions => 5 points.
 
-The algorith is good enought to pass the project. If the Bonus part is also done the project could get more than 105%.
+The algorithm is good enought to pass the project.
 
 ### Bonus
 
@@ -106,4 +51,3 @@ If after executing those instructions, stack a is actually sorted and b is empty
 checker must display "OK" else "KO". If checker arguments are invalid it displays Error.
 
 The checker code can be found in the checker.c file in this repository.
-
